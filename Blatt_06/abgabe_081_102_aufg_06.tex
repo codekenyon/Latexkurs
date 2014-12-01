@@ -6,15 +6,76 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
 
 %%%%%%%%%%%%%%%%%%
 % Eigene Befehle %
 %%%%%%%%%%%%%%%%%%
+\newcounter{AufgabeNr}
+\newcounter{TeilaufgNr}[AufgabeNr]
+\newcounter{Punkte}[AufgabeNr]
+
+\setcounter{AufgabeNr}{0}
+\setcounter{TeilaufgNr}{0}
+\setcounter{Punkte}{0}
+
+\newenvironment{Aufgabe}[1]
+{
+  \stepcounter{AufgabeNr}
+  \par
+  \textbf{Aufgabe \thesection.\theAufgabeNr\ (#1)}
+  \par
+}
+{
+  \par
+  \hfill Gesamtpunktzahl bei Aufgabe \thesection.\theAufgabeNr: \thePunkte\ P.    
+}
+
+\newenvironment{Teilaufg}[1]
+{
+  \stepcounter{TeilaufgNr}
+  \addtocounter{Punkte}{#1}
+  \par
+  \textit{Teilaufgabe \thesection.\theAufgabeNr.\roman{TeilaufgNr} (#1 P.):}
+}
+{
+  \hfill\textbf{!}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Ende eigener Befehle %
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
+\section{Eingabe}
+\begin{Aufgabe}{Geräte}
+  Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
+  \begin{Teilaufg}{1}
+Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
+  \end{Teilaufg}
+  \begin{Teilaufg}{1}
+Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
+  \end{Teilaufg}
+  \begin{Teilaufg}{2}
+Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
+  \end{Teilaufg}
+\end{Aufgabe}
+
+\begin{Aufgabe}{Datenformate}
+  Aufgabentext
+  \begin{Teilaufg}{3}
+    Teilaufgabentext
+  \end{Teilaufg}
+\end{Aufgabe}
+
+\section{Verarbeitung}
+
+\section{Ausgabe}
+
+\setcounter{section}{41}
+\section{Schnittstellen}
+
+\section{Verbundstellen}
 
 \end{document}
