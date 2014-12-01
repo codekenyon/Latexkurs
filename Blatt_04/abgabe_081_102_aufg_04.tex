@@ -1,0 +1,57 @@
+% Rieke, Ken    4234782
+% Thill, Gregor 4260617
+
+\documentclass[12pt,a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\DeclareMathOperator{\grad}{grad}
+\newcommand{\Sum}{\sum\limits_{i=1}^{n}}
+\newcommand{\abMinus}{{a_{i}b_{i}}^{-1}}
+\newcommand{\baMinus}{{b_{i}a_{i}}^{-1}}
+\newcommand{\fivedots}{\cdot \cdots \cdot}
+
+\begin{document}
+\thispagestyle{empty}
+
+Mathematische Formeln sind recht leicht umzusetzen. Für den Binomialkoeffizienten
+gilt die Aussage
+\[
+  \binom{n}{k}
+  = \frac{n}{1} \cdot \frac{n-1}{2} \cdot \ldots \cdot \frac{n-k+1}{k}
+  = \frac{n \cdot (n-1) \fivedots (n-k+1)}{k!}
+  = \prod_{i=1}^{k} \frac{n+1-i}{i}.
+\]
+
+\noindent
+Es sei $f(x_{1}, \ldots, x_{n})$ für $x_{i} \in \mathbb{R}$ eine Funktion. Ein bestimmter
+Eintrag im Gradienten dieser Funktion, d.h. die partielle Ableitung in $x_{i}$-Richtung,
+sieht dann so aus:
+\[
+ (\grad f)_{i}
+ = \frac{\partial f}{\partial x_{i}}.
+\]
+
+\noindent
+Allgemein gilt $\alpha \grad f + \beta \grad g = \grad(\alpha f + \beta g)$. Integrale
+können ebenso spannend sein, wie aus der Funktion
+\[
+ f(z)
+ = \frac{1}{2 \pi \mathrm{i}}
+   \int\limits_{M} \frac{f(\zeta)}{\zeta-z} \mathrm{d}\zeta
+   \qquad \text{ für alle } z \in \mathfrak{K}(z_{0};r)
+\]
+
+\noindent
+ersichtlich ist. Sicherlich kennen Sie auch $\sqrt{1-(\sin x)^2} = \cos x$. Zuletzt folgt noch
+eine lange Formel, die u.a. dem Anwenden eigener Befehle dienen soll:
+\[
+  \Sum\abMinus + \Sum\baMinus
+  = \Sum(\abMinus + \baMinus)
+  \geq \Sum 2 =2n.
+\]
+\end{document}

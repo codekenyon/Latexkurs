@@ -1,0 +1,108 @@
+% Rieke, Ken    4234782
+% Thill, Gregor 4260617
+
+\documentclass[12pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb}
+
+%%%%%%%%%%%%%%%%%%
+% Eigene Befehle %
+%%%%%%%%%%%%%%%%%%
+
+% Zeichenfolge det soll als mathematischer Operator gelten:
+\DeclareMathOperator{\dete}{det}
+
+% \Vektor erzeugt eine Vektordarstellung für die Variable #2 % von Element 1
+% bis zum optionalen Index #1 (n, wenn nicht angegeben).
+\newcommand{\Vektor}[2][n]{\vec{#2} = (#2_1, \ldots, #2_{#1})}
+
+% \DProdukt erzeugt ein doppeltes Produktformelzeichen aus den Zählvariablen
+% #1 und #2 bis zur Indexvariablen #3.
+\newcommand{\DProdukt}[3]{\prod\limits_{#1=1}^{#3} \prod\limits_{#2=1}^{#1-1}}
+
+% \SProdukt erzeugt ein Produktformelzeichen mit mehrzeiligem Index, welcher
+% aus den Zählvariablen #1 und #2 plus eine Indexvariable #3 besteht.
+\newcommand{\SProdukt}[3]{\prod_{\substack{#1,#2\in[#3]\\#1>#2}}}
+
+% Die Beschreibung zu \Vand ergibt sich aus dem Aufgabentext von Übungsblatt 5.
+% Der optionale Parameter #1 gibt den Index an, während der notwendige Parameter
+% #2 die Variable der Einträge angibt.
+\newcommand{\Vand}[2][n]{
+  \left(
+  \begin{array}{ccccc}
+    1      & #2_1    & #2_1^2    & \cdots & #2_1^{#1-1}    \\
+    1      & #2_2    & #2_2^2    & \cdots & #2_2^{#1-1}    \\
+    \vdots & \vdots  & \vdots    & \ddots & \vdots         \\
+    1      & #2_{#1} & #2_{#1}^2 & \ldots & #2_{#1}^{#1-1}
+  \end{array}
+  \right)
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende eigener Befehle %
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\section{Eine besondere Determinante}
+  Für $\Vektor[k]{x}$ ist
+  \begin{equation}
+    V(\vec{x}) := \Vand[k]{x} 
+  \end{equation}
+  die Vandermonde-Matrix zu $\vec{x}$. Es sei $[n] := \{1,\ldots,n\}.$ Mittels
+  \begin{align}
+    \dete V(\vec{x}) & = |V(\vec{x})| \nonumber        \\
+    \label{ProdProd} & = \DProdukt{i}{j}{n}(x_i - x_j) \\
+    \label{Prod}     & = \SProdukt{i}{j}{n}(x_i - x_j)
+  \end{align}
+  lässt sich die Determinante einer Vandermonde-Matrix bestimmen. Die Formeln
+  mit den Nummern \ref{ProdProd} und \ref{Prod} stellen dabei nur unterschiedliche
+  Schreibweisen dar.
+
+  Es sei nun $\Vektor{\alpha}$ mit paarweise verschiedenen reellen Zahlen
+  $\alpha_i$, d.h. $\alpha_i \neq \alpha_j$ für alle $i \neq j$. Demnach muss
+  für $i, j$ mit $i \neq j$ der Zusammenhang
+  \begin{align}
+    \alpha_{i}                      & \neq \alpha_j \qquad | - \alpha_j \nonumber \\
+    \Rightarrow \alpha_i - \alpha_j & \neq 0 \nonumber
+  \end{align}
+  gelten. Für den Wert der Determinante der zugehörigen Vandermonde-Matrix, d.h. für
+  \begin{align}
+    \underline{\dete V(\vec\alpha)} = \dete \Vand{\alpha}
+      & = \left| \Vand{\alpha}\right| \nonumber 
+    \intertext{folgt entsprechend}  \nonumber \\
+    \label{AlphaProd}
+      & \stackrel{(\ref{Prod})}{=}
+        \SProdukt{i}{j}{n}
+        \overbrace{(\alpha_i - \alpha_j)}^{\neq 0}
+        \underline{\neq 0}
+  \end{align}
+  und damit die Existenz ihrer Inversen $V(\vec{\alpha})^{-1}$. Die etwas strengere Bedinung
+  \[
+    |V(\vec{\alpha})|\not\thickapprox 0
+  \]
+  ist für eine numerisch stabile Bestimmung der Inversen vorzuziehen.\newpage
+
+  Dieses Ergebnis ist recht spannend. So wissen wir nun aus Formel (\ref{AlphaProd})
+  auf Seite \pageref{AlphaProd}, dass für 42 beliebige paarweise verschiedene
+  Zahlen $a_i$ die an dieser Stelle linksbündig gesetzte Matrix
+  \begin{flalign*}
+    \Vand[42]{a} &&
+  \end{flalign*}
+  regulär ist.
+
+\section{Ein spezieller Fall}
+  Es soll nun der Fall $k = 2$, d.h. die Vandermonde-Matrix $V(\vec{x}) = V(x_1,x_2)$
+  betrachtet werden. Entsprechend muss dann für deren Determinante
+  \begin{align}
+    \dete V(x_1,x_2) =
+    \begin{cases}
+      0 & \text{für }x_1=x_2\\
+      x_2 - x_1 \neq 0 & \text{für } x_1 \neq x_2 \nonumber
+    \end{cases}
+  \end{align}
+  gelten.
+
+\end{document}

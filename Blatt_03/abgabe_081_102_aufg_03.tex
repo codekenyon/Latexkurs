@@ -1,0 +1,116 @@
+% Rieke, Ken    4234782
+% Thill, Gregor 4260617
+
+% Bitte fügen Sie am Ende des Dokuments an den entsprechenden Stellen Ihre Tabelle und Ihren Text ein.
+% Denken Sie an Ihre Namen und Martikelnummer sowie an die korrekte DATEIBENENNUNG!
+
+
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+% Fehler: Schreibfehler. documert statt document
+\begin{document}
+
+\section{Fehlerteil}
+
+% Fehler: Fehlende Klammerung am Ende von \textit. (})
+\textit{Ich hoffe, die heutige Vorlesung war spannend und Sie haben viel gelernt.
+Wir haben uns ausführlich mit \textbf{Boxen}, mit \textbf{Abständen},
+mit \textbf{Tabulatoren} und mit \textbf{Tabellen beschäftigt.
+Besonders spannend sollte auch das Thema Fehlerbehebung gewesen sein,
+da dieses Thema besonders wichtig und hilfreich ist.}}
+
+\begin{tabbing}
+Tabulatoren sind \= schön. \\
+\> gut. \\
+\> vielseitig.\\
+%Fehler: Fehlender Zeilenumbruch. \\
+\> manchmal nervig. \\
+\> nicht so toll wie Tabellen.
+\end{tabbing}
+
+\noindent Abschließend listen wir nun nochmal die Superhelden auf,
+die wir in der aktuellen Vorlesung schon kennengelernt haben:
+\begin{itemize}
+\item Iron Man
+\item Captain America
+%Fehler: Schreibfehler. /item statt /ietm
+\item Thor
+\item Hulk
+\end{itemize}
+
+
+\newpage
+\section{Meine Tabelle}
+
+% Hier fügen Sie Ihre Tabelle ein.
+% [X] Tabelle passt auf hochformatige Seite und ragt nicht über
+% [X] Die Tabelle ist mit vertikalen und horizontalen Linien berandet
+% [X] Mehrere Spalten werden in einzelne Zeilen zusammengefasst
+% [X] Die Tabelle soll zentriert sein
+% [X] Es sind mindestens eine rechtsbündige, eine linksbündige und eine Spalte mit normaler Fließtextformatierung enthalten
+
+\begin{center}
+  \begin{tabular}{|l|r|p{8cm}|}
+  \hline
+  \multicolumn{3}{|c|}{Stadien körperlicher Auskühlung und ihre Symptome}  \\
+  \hline \hline
+   & Temp. unter & Symptome  \\ \hline
+             &              & Kältegefühl, Frieren \\ \cline{3-3}
+             & 37 $^\circ$C & Finger und Zehen werden zunehmend gefühllos (verminderte Blutzufuhr) \\ \cline{2-3}
+             &              & Bewegungen werden ungelenk \\ \cline{3-3}
+  1. Stadium & 36 $^\circ$C & starkes, unkontrollierbares Zittern \\ \cline{3-3}
+             &              & Müdigkeit \\ \cline{2-3}
+             &              & Finger und Zehen sind gefühllos gegen Kälte und Schmerz\\ \cline{3-3}
+             & 35 $^\circ$C & Muskeln werden steif und Bewegungen unkoordiniert\\ \hline
+             &              & geistige Verwirrtheit, Gedächtnisstörung\\ \cline{3-3}
+             & 34 $^\circ$C & Unvermögen, die Situation einzuschätzen\\ \cline{2-3}
+             &              & verwirrtes Reden, verminderte Ansprechbarkeit\\ \cline{3-3}
+  2. Stadium & 33 $^\circ$C & starkes Verlangen nach Schlaf\\ \cline{3-3}
+             &              & Zittern kann aufhören\\ \cline{3-3}
+             &              & Verlust des Kontakts zur Realität\\ \hline
+             &              & Halluzination, Benommenheit\\ \cline{3-3}
+  3. Stadium & 30 $^\circ$C & Puls und Atmung verlangsamt und schwach\\ \cline{3-3}
+             &              & Bewusstlosigkeit\\ \hline
+             &              & starkes Verlangen nach Schlaf\\ \cline{3-3}
+  4. Stadium & 28 $^\circ$C & Herzrhythmusstörungen\\ \cline{3-3}
+             &              & Herzstillstand, Lähmung des Atemzentrums, Tod\\ \hline
+  \end{tabular}
+\end{center}
+
+\newpage
+\section{Mein Text}
+
+% Hier fügen Sie Ihren Text ein.
+
+% [X] Text soll sich in zwei Spalten aufteilen.
+% [X] Jede Spalte hat eine Breite von 5cm.
+% [X] Jeweils mindestens ein Wort ist um einen Geviertstrich nach oben
+%     bzw. unten zu verschieben.
+% [X] Genau eine Zeile des Textes soll (unabhängig vom tatsächlichen Inhalt)
+%     eine Höhe von 2,5cm belegen. => Interpretation: Nicht in jeder Spalte.
+% [X] Die Spalten werden nicht mittels zweispaltigem Satz sondern Boxen erstellt.
+\begin{center}
+  \textbf{Unterkühlung}\\
+  \vspace{5mm}
+  \parbox{5cm}{
+    Unterkühlung bedeutet das \textbf{Absinken der Kerntemperatur} des Körpers
+    \raisebox{-1em}{unter} 37$^\circ$C. Diese Kerntemperatur, um die sich
+    die ganze \raisebox{1em}{körperinterne} Energieversorgung dreht, ist die
+    Temperatur der lebenswichtigen inneren Organe \raisebox{0mm}[1.25cm][1.25cm]{in}
+    Rumpf und Kopf. Sie liegt bei uns Menschen
+  }
+  \hspace{1em}
+  \parbox[c]{5cm}{
+    bekanntlich um 37$^\circ$C. Fällt sie \raisebox{1em}{nur} um 1-2 Grad, so
+    sind die Koordination der Bewegungen, das  Denkvermögen und das
+    \raisebox{-1em}{willkürliche} Handeln bereits erheblich eingeschränkt. Und
+    sinkt sie um mehr als 3-4 Grad, so kann dies zur Bewusstlosigkeit führen und
+    den Tod zur Folge haben.
+  }
+\end{center}
+
+
+\end{document}
