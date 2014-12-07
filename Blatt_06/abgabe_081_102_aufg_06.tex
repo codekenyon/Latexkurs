@@ -31,15 +31,16 @@
   \hfill Gesamtpunktzahl bei Aufgabe \thesection.\theAufgabeNr: \thePunkte\ P.    
 }
 
-\newenvironment{Teilaufg}[1]
-{
+\newsavebox{\Ende}
+\newenvironment{Teilaufg}[2][!]
+{\sbox{\Ende}{\textbf{#1}}
   \stepcounter{TeilaufgNr}
-  \addtocounter{Punkte}{#1}
+  \addtocounter{Punkte}{#2}
   \par
-  \textit{Teilaufgabe \thesection.\theAufgabeNr.\roman{TeilaufgNr} (#1 P.):}
+  \textit{Teilaufgabe \thesection.\theAufgabeNr.\roman{TeilaufgNr} (#2 P.):}
 }
 {
-  \hfill\textbf{!}\par
+  \hfill\usebox{\Ende}\par
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,13 +52,13 @@
 \section{Eingabe}
 \begin{Aufgabe}{Geräte}
   Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
-  \begin{Teilaufg}{1}
+  \begin{Teilaufg}[1]{1}
 Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
   \end{Teilaufg}
   \begin{Teilaufg}{1}
 Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
   \end{Teilaufg}
-  \begin{Teilaufg}{2}
+  \begin{Teilaufg}[?]{2}
 Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch entsteht, dies sollte nun aber reichen.
   \end{Teilaufg}
 \end{Aufgabe}
