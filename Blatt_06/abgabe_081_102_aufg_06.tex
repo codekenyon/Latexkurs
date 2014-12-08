@@ -11,7 +11,7 @@
 %%%%%%%%%%%%%%%%%%
 % Eigene Befehle %
 %%%%%%%%%%%%%%%%%%
-\newcounter{AufgabeNr}
+\newcounter{AufgabeNr}[section]
 \newcounter{TeilaufgNr}[AufgabeNr]
 \newcounter{Punkte}[AufgabeNr]
 
@@ -22,27 +22,29 @@
 \newenvironment{Aufgabe}[1]
 {
   \stepcounter{AufgabeNr}
-  \par
+
   \textbf{Aufgabe \thesection.\theAufgabeNr\ (#1)}
-  \par
+
 }
 {
-  \par
+
   \hfill Gesamtpunktzahl bei Aufgabe \thesection.\theAufgabeNr: \thePunkte\ P.
+
 }
 
 \newsavebox{\Ende}
 \newenvironment{Teilaufg}[2][!]
-{\sbox{\Ende}{\textbf{#1}}
+{
   \stepcounter{TeilaufgNr}
   \addtocounter{Punkte}{#2}
-  \par
-	\textit{Teilaufgabe \thesection.\theAufgabeNr.\roman{TeilaufgNr} (#2 P.):}
+  \sbox{\Ende}{\textbf{#1}}
+
+  \textit{Teilaufgabe \thesection.\theAufgabeNr.\roman{TeilaufgNr} (#2 P.):}
 }
 {
-  \small \mbox{} \hspace*{\fill} \usebox{\Ende}\par
-}
+  \hspace*{\fill} \usebox{\Ende}
 
+}
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Ende eigener Befehle %
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,7 +91,9 @@ Art und Weise.
 \begin{Aufgabe}{Algorithmen}
   \begin{Teilaufg}{5}
     Beschreiben Sie, was ein Algorithmus ist.
+
   \end{Teilaufg}
+  Ein kleiner Einschub zwischen den Teilaufgaben.
   \begin{Teilaufg}[Wohlfühlfrage]{5}
   
     Nennen Sie drei unterschiedliche Algorithmen und beobachten danach ausgiebig
@@ -122,12 +126,36 @@ Art und Weise.
   Aufgabe nicht korrigiert werden kann und deshalb mit 0 bewertet wird. Beschwerden
   dagegen führen zu weiteren Abzügen.
 \end{Aufgabe}
-\begin{Aufgabe}{Mythen}
-\end{Aufgabe}
 
-\section{Ausgabe}
-\begin{Aufgabe}{Ausgabeformate}
-  \begin{Teilaufg}[iddqd]{19}
+\setcounter{section}{0}
+\section{Beispiel}
+\begin{Aufgabe}{Thema 1}
+  \begin{Teilaufg}[?]{4}
+    Hier ist der Text.
+  \end{Teilaufg}
+  \begin{Teilaufg}{3}
+    Umfangreicher langer Text, damit die Zeile auch voll wird und ein Zeilenumbruch
+    entsteht, dies sollte nun aber reichen.
+  \end{Teilaufg}
+\end{Aufgabe}
+Und noch eine Aufgabe:
+\begin{Aufgabe}{Thema 2}
+Ein Text vorweg.
+  \begin{Teilaufg}[Ende]{5}
+
+    Noch ein Text mit Absatz davor und danach.
+
+  \end{Teilaufg}
+  Gleich ists vorbei.
+\end{Aufgabe}
+Der Text ist zu Ende.
+
+\setcounter{section}{26}
+\section{Noch ein Beispiel}
+\setcounter{AufgabeNr}{2}
+\begin{Aufgabe}{Thema 3}
+  \begin{Teilaufg}{1}
+    Hier geht es um die Nummerierung.
   \end{Teilaufg}
 \end{Aufgabe}
 
