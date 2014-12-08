@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%
+% Eigene Befehle %
+%%%%%%%%%%%%%%%%%%
+% Befehl für Dozent
+\newsavebox{\D}
+\newcommand{\Dozent}[1]{\sbox{\D}{#1}}
+% Befehlt für Institut
+\newsavebox{\I}
+\newcommand{\Institut}[1][Institut für Mathematische Optimierung]{\sbox{\I}{\Huge #1 \normalsize}}
+% Befehl für Vorlesung
+\newsavebox{\V}
+\newcommand{\Vorlesung}[1]{\sbox{\V}{#1}}
+% Befehl für Semester
+\newsavebox{\Sem}
+\newcommand{\Semester}[1]{\sbox{\Sem}{#1}}
+% Befehl für Blattnummer
+\newsavebox{\B}
+\newcommand{\Blattnummer}[1]{\sbox{\B}{\colorbox{yellow}{Aufgabenblatt #1}}}
+% Befehl für Abgabe
+\newsavebox{\A}
+\newcommand{\Abgabe}[1]{\sbox{\A}{Abgabe: \textbf{#1}}}
+% Befehl für Hinweis
+\newsavebox{\Hinw}
+\newcommand{\Hinweis}[1]{\sbox{\Hinw}{{\color{blue} \textbf{Hinweis:} #1}}}
+% Umgebung für Blatt
+\newenvironment{Blatt}
+{
+\begin{center}
+\usebox{\I}
+\end{center}
+\usebox{\V} \hfill \usebox{\Sem}\par
+\noindent\usebox{\D} \hfill \usebox{\A}\par
+\noindent\usebox{\Hinw}\par
+\begin{center}
+\usebox{\B}
+\end{center}
+}
+{}
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende eigener Befehle %
+%%%%%%%%%%%%%%%%%%%%%%%%
