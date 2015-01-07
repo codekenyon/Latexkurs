@@ -7,8 +7,54 @@
 \usepackage[ngerman]{babel}
 \usepackage{amsmath,amssymb}
 
+% Farben und so
+\usepackage{color}
+
+% Später wieder entfernen!
+\usepackage{graphpap}
+\definecolor{Gitternetz}{gray}{0.8}
+\newenvironment{grafik}[3][2]{
+  \setlength{\unitlength}{3ex}
+  \begin{picture}(#2,#3)
+    \color{Gitternetz}
+    \graphpaper[#1](0,0)(#2,#3)
+    \color{black}
+}{
+  \end{picture}
+}
+% Schluss mit Entfernen!
+
+
 \begin{document}
-\setlength{\unitlength}{3ex}
-\begin{picture}
-\end{picture}
+%\setlength{\unitlength}{3ex}                                    % Aktivieren nicht vergessen!
+%\begin{picture}(26,23)                                          % Aktivieren nicht vergessen!
+\begin{grafik}{26}{23}                                           % Löschen nicht vergessen
+  % Waagerechte Pfeile  \multiput(0,7)(0,6){3}{
+    \multiput(0,0)(6,0){4}{
+      \put(0,0){\vector(1,0){2}}
+    }
+  }
+  % Senkrechte Pfeile (schwarz)  \multiput(4,23)(0,-6){3}{
+    \multiput(0,0)(6,0){4}{
+      \put(0,0){\vector(0,-1){2}}
+    }
+  }
+  % Senkrechte Pfeile (unterste Zeile, rot)  \multiput(4,5)(6,0){4}{
+    \put(0,0){{\color{red}\vector(0,-1){2}}}
+  }
+  % Kreise mit e  \multiput(4,19)(0,-6){3}{
+    \put(0,0){\circle{3}\makebox(0,0){e}}
+  }
+  % Kreise mit m  \multiput(10,19)(0,-6){3}{
+    \put(0,0){\circle{3}\makebox(0,0){m}}
+  }
+  % Kreise mit (grünem) c  \multiput(16,19)(0,-6){3}{
+    \put(0,0){\circle{3}\makebox(0,0){{\color{green}c}}}
+  }
+  % Kreise mit c  \multiput(22,19)(0,-6){3}{
+    \put(0,0){\circle{3}\makebox(0,0){c}}
+  }
+\end{grafik}                                                     % Löschen nicht vergessen!
+%\end{picture}                                                   % Aktivieren nicht vergessen!
+
 \end{document}
