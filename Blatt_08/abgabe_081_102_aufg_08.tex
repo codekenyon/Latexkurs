@@ -29,31 +29,52 @@
 %\setlength{\unitlength}{3ex}                                    % Aktivieren nicht vergessen!
 %\begin{picture}(26,23)                                          % Aktivieren nicht vergessen!
 \begin{grafik}{26}{23}                                           % Löschen nicht vergessen
-  % Waagerechte Pfeile  \multiput(0,7)(0,6){3}{
+  % Waagerechte Pfeile
+  \multiput(0,7)(0,6){3}{
     \multiput(0,0)(6,0){4}{
       \put(0,0){\vector(1,0){2}}
     }
   }
-  % Senkrechte Pfeile (schwarz)  \multiput(4,23)(0,-6){3}{
+  % Senkrechte Pfeile (schwarz)
+  \multiput(4,23)(0,-6){3}{
     \multiput(0,0)(6,0){4}{
       \put(0,0){\vector(0,-1){2}}
     }
   }
-  % Senkrechte Pfeile (unterste Zeile, rot)  \multiput(4,5)(6,0){4}{
+  % Senkrechte Pfeile (unterste Zeile, rot)
+  \multiput(4,5)(6,0){4}{
     \put(0,0){{\color{red}\vector(0,-1){2}}}
   }
-  % Kreise mit e  \multiput(4,19)(0,-6){3}{
+  % Kreise mit e
+  \multiput(4,19)(0,-6){3}{
     \put(0,0){\circle{3}\makebox(0,0){e}}
   }
-  % Kreise mit m  \multiput(10,19)(0,-6){3}{
+  % Kreise mit m
+  \multiput(10,19)(0,-6){3}{
     \put(0,0){\circle{3}\makebox(0,0){m}}
   }
-  % Kreise mit (grünem) c  \multiput(16,19)(0,-6){3}{
+  % Kreise mit (grünem) c
+  \multiput(16,19)(0,-6){3}{
     \put(0,0){\circle{3}\makebox(0,0){{\color{green}c}}}
   }
-  % Kreise mit c  \multiput(22,19)(0,-6){3}{
+  % Kreise mit c
+  \multiput(22,19)(0,-6){3}{
     \put(0,0){\circle{3}\makebox(0,0){c}}
   }
+  % Blaue Pfeile
+  \multiput(6,12)(0,6){2}{
+    \put(0,0){{\color{blue}\vector(1,-1){3}}}
+    \put(0,0){{\color{blue}\qbezier(0,0)(4,-4)(8,0)}}
+    \put(8,0){{\color{blue}\vector(1,1){0}}} % Workaround für Pfeilspitze, bis bessere Lösung in Sicht.
+  }
+  % "Klammern" am rechten Rand
+  \multiput(24,10)(0,6){2}{
+    \put(0,0){{\thicklines\oval(4,6)[r]}}
+  }
+  % Rote Kurve am rechten Rand
+  \put(23,8){{\color{red}\qbezier(0,0)(2,6)(0,10)}}
+  % Oval mit Schriftzug e = mc^2?
+  \put(13,1){{\thicklines\color{red}\oval(20,2)\makebox(0,0){$e = mc^2\ ?$}}}
 \end{grafik}                                                     % Löschen nicht vergessen!
 %\end{picture}                                                   % Aktivieren nicht vergessen!
 
