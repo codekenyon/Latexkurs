@@ -1,0 +1,79 @@
+% Rieke, Ken    4234782
+% Thill, Gregor 4260617
+
+\documentclass[ngerman]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\deftranslation[to=ngerman]{Theorem}{Satz}
+\deftranslation[to=ngerman]{Proof}{Beweis}
+\deftranslation[to=ngerman]{Corollary}{Folgerung}
+\deftranslation[to=ngerman]{Example}{Beispiel}
+
+% TODO
+% [ ] Ein Inhaltsverzeichnis, das schrittweise aufgedeckt wird
+% [ ] Mindestens eine Folie, die nach und nach und nicht nur von oben nach unten aufgedeckt wird.
+% [ ] Mindestens je einen Satz, eine Folgerung und einen Beweis (mit deutscher Bezeichnung)
+% [ ] Mindestens einen Querverweis auf die Nummer einer anderen Folie.
+% [ ] Layout- und Farbschema, das nicht der Vorlesungs-Präsentation entspricht
+
+\begin{document}
+\author{
+  Ken Rieke \and Gregor Thill}
+\institute{Technische Universität Carolo-Wilhelmina zu Braunschweig}
+\date{\today}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Inhalt}
+  \tableofcontents[pausesections]
+\end{frame}
+
+\section{Einfache Foliengestaltung}
+\subsection{All at once}
+\begin{frame}
+  \frametitle{All at once}
+  \framesubtitle{lenkt Betrachter ab}
+  \begin{theorem}
+    Blabla
+  \end{theorem}
+  \begin{proof}
+    Blabla
+  \end{proof}
+  \begin{lemma}
+    Blabla
+  \end{lemma}
+\end{frame}
+
+\subsection{Fading in order}
+\begin{frame}
+  \frametitle{Fading in order}
+  \framesubtitle{Steuerung des Fokus}
+  \begin{definition}
+    Blabla
+  \end{definition}
+  \begin{example}
+    Blabla
+  \end{example}
+\end{frame}
+
+\section{Komplexere Foliengestaltung}
+\subsection{Fading out of order}
+\begin{frame}
+  \frametitle{Fading out of order}
+  \framesubtitle{Verbesserter Fokus}
+  Dies ist ein wenig Text.
+\end{frame}
+
+\subsection{Only one}
+\begin{frame}
+  \frametitle{Only one}
+  \framesubtitle{Der springende Punkt}
+  Dies ist ein wenig Text.
+\end{frame}
+
+\end{document}
