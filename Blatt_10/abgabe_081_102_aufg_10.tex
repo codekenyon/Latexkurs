@@ -2,6 +2,9 @@
 % Thill, Gregor 4260617
 
 \documentclass[ngerman]{beamer}
+% Fix für Warnungen Nr. 3 und 4 dargestellt in:
+% http://texblog.net/latex-archive/latex-general/beamer-warnings/
+\let\Tiny=\tiny
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -11,69 +14,96 @@
 \deftranslation[to=ngerman]{Corollary}{Folgerung}
 \deftranslation[to=ngerman]{Example}{Beispiel}
 
-% TODO
-% [ ] Ein Inhaltsverzeichnis, das schrittweise aufgedeckt wird
-% [ ] Mindestens eine Folie, die nach und nach und nicht nur von oben nach unten aufgedeckt wird.
-% [ ] Mindestens je einen Satz, eine Folgerung und einen Beweis (mit deutscher Bezeichnung)
-% [ ] Mindestens einen Querverweis auf die Nummer einer anderen Folie.
-% [ ] Layout- und Farbschema, das nicht der Vorlesungs-Präsentation entspricht
-
-\begin{document}
-\author{
-  Ken Rieke \and Gregor Thill}
+\author{Ken Rieke \and Gregor Thill}
 \institute{Technische Universität Carolo-Wilhelmina zu Braunschweig}
 \date{\today}
 
-\begin{frame}
-  \titlepage
-\end{frame}
+\begin{document}
+\frame{\titlepage}
 
-\begin{frame}
+\begin{frame}[label=inhalt]
   \frametitle{Inhalt}
   \tableofcontents[pausesections]
 \end{frame}
 
 \section{Einfache Foliengestaltung}
-\subsection{All at once}
-\begin{frame}
-  \frametitle{All at once}
-  \framesubtitle{lenkt Betrachter ab}
-  \begin{theorem}
-    Blabla
-  \end{theorem}
-  \begin{proof}
-    Blabla
-  \end{proof}
-  \begin{lemma}
-    Blabla
-  \end{lemma}
-\end{frame}
-
-\subsection{Fading in order}
-\begin{frame}
-  \frametitle{Fading in order}
-  \framesubtitle{Steuerung des Fokus}
+\subsection{Alle Punkte zugleich}
+\begin{frame}[label=paritaet]
+  \frametitle{Parität}
+  \framesubtitle{im mathematischen Sinne}
   \begin{definition}
-    Blabla
+    Eine ganze Zahl heißt \alert{gerade}, wenn sie ohne Rest durch zwei teilbar
+    ist; andernfalls heißt sie \alert{ungerade}.\cite{wikiped-1}
   \end{definition}
   \begin{example}
-    Blabla
+    \begin{itemize}
+      \item $42 / 2 = 21$ R $0 \Rightarrow 42$ ist gerade
+      \item $21 / 2 = 10$ R $1 \Rightarrow 21$ ist ungerade
+      \item $10 / 2 = 5$ R $0 \Rightarrow 10$ ist gerade
+      \item $5 / 2 = 2$ R $1 \Rightarrow 5$ ist ungerade
+    \end{itemize}
   \end{example}
 \end{frame}
 
+\subsection{Ein Punkt nach dem Anderen}
+\begin{frame}[label=reihe]
+  \frametitle{Ein Punkt nach dem Anderen}
+  \framesubtitle{Steuerung des Fokus}
+  \begin{theorem}
+    Zuerst wird dieser Satz aufgedeckt.
+  \end{theorem}\uncover<2->{
+  \begin{proof}
+    \begin{itemize}
+      \item<2-> Beweisanfang
+      \item<3-> Beweisfortführung
+      \item<4-> Ablenkung auf Folie \ref{inhalt}
+      \item<5-> Beweisende\qedhere
+    \end{itemize}
+  \end{proof}}\uncover<6->{
+  \begin{corollary}
+    Nebenprodukt des soeben geführten Beweises.
+  \end{corollary}}
+\end{frame}
+
 \section{Komplexere Foliengestaltung}
-\subsection{Fading out of order}
+\subsection{Großes Durcheinander}
 \begin{frame}
-  \frametitle{Fading out of order}
-  \framesubtitle{Verbesserter Fokus}
-  Dies ist ein wenig Text.
+  \frametitle{Großes Durcheinander}
+  \framesubtitle{Fokusführung für Fortgeschrittene}
+  \begin{block}{Wiederholung...}
+    ...der Folien \ref{paritaet} bis \ref{reihe}.
+  \end{block}\uncover<2->{
+  \begin{itemize}
+    \item<2,4,6,7> Das
+    \item<1-3,7> wäre
+    \item<4-6,7> doch
+    \item<2-4,7> zu
+    \item<1,3,5,7> einfach.
+  \end{itemize}}
 \end{frame}
 
 \subsection{Only one}
-\begin{frame}
+\begin{frame}[t,plain,fragile]
   \frametitle{Only one}
   \framesubtitle{Der springende Punkt}
-  Dies ist ein wenig Text.
+  Spielerei mit \verb:\only:
+
+  \only<1>{Eins\\}
+  \only<2-3>{Zwei bis Drei\\}
+  \only<-4>{bis Vier}
+
+  Und auch mit den Flags t, plain sowie fragile.
 \end{frame}
 
+\section{Quellen}
+\begin{frame}
+  \frametitle{Quellen}
+  \begin{thebibliography}{9}
+    \bibitem{wikiped-1}
+      Verschiedene,
+      \emph{Parität (Mathematik)}.\\
+      https://de.wikipedia.org/wiki/Parität\_(Mathematik),
+      abgerufen am 20. Januar 2015
+  \end{thebibliography}
+\end{frame}
 \end{document}
