@@ -9,11 +9,19 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 
+\usetheme[hideothersubsections]{Goettingen}
+\usecolortheme[RGB={85,170,255}]{structure} % Färbt Strukturelemente in einen Blauton
+\usecolortheme{seahorse}                    % Farben für Elemente des outer themes
+\usecolortheme{orchid}                      % Farben für Elemente von inner themes
+\usecolortheme{sidebartab}                  % Farbliche Hervorhebung der aktuellen Folie
+\useinnertheme[shadow]{rounded}
+
 \deftranslation[to=ngerman]{Theorem}{Satz}
 \deftranslation[to=ngerman]{Proof}{Beweis}
 \deftranslation[to=ngerman]{Corollary}{Folgerung}
 \deftranslation[to=ngerman]{Example}{Beispiel}
 
+\title{\LaTeX\ $\cdot$ Hausaufgabe zur 10. Vorlesung}
 \author{Ken Rieke \and Gregor Thill}
 \institute{Technische Universität Carolo-Wilhelmina zu Braunschweig}
 \date{\today}
